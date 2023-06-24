@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Streamer Spotlight Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple streamer spotlight application where users can add their favorite streamers and interact with them by upvoting or downvoting. The application consists of a frontend and a backend component that work together to provide a seamless user experience.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- React.js
+- Node.js
+- Express
+- SQLite3
+- Sequelize
 
-### `npm start`
+### Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The frontend is responsible for providing a user interface where users can submit streamers and view the list of streamers along with their upvote/downvote counts.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Page 1: Streamer Submission Form
 
-### `npm test`
+This page contains a form where users can submit their favorite streamers. The form includes the following fields:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Streamer's name
+- Streaming platform dropdown (Twitch/YouTube/TikTok/Kick/Rumble)
+- Description of the streamer
 
-### `npm run build`
+### Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The backend handles data storage and retrieval for the streamer submissions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### POST /streamers
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This endpoint receives new streamer submissions from the frontend and stores them in a database.
 
-### `npm run eject`
+#### GET /streamers
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This endpoint returns all stored streamer submissions in response to a request from the frontend.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### GET /streamer/[streamerId]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This endpoint returns data about a specific streamer identified by `[streamerId]`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### PUT /streamers/[streamerId]/vote
 
-## Learn More
+This endpoint receives an upvote for a specific streamer and updates their current upvote/downvote count.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run the project locally, follow these steps:
 
-### Code Splitting
+1. Clone the repository.
+2. Run `npm install` to install the backend dependencies.
+3. Run `npm start` to start both the frontend and the backend servers.
+4. Access the application in your web browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Conclusion
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This streamer spotlight application provides an easy way for users to submit their favorite streamers and interact with them through upvoting and downvoting. The frontend and backend components work together to ensure a smooth user experience.
