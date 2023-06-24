@@ -23,7 +23,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "mocha",
     "eject": "react-scripts eject"
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "chai": "^4.3.7",
+    "concurrently": "^8.2.0",
     "mocha": "^10.2.0",
     "supertest": "^6.3.3"
   }
